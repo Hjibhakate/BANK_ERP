@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Management & Retail Banking</title>
+    <link rel="stylesheet" href="CustomerBanking.css">
+</head>
+<body onload="greetUser()">
+
+    <div class="container">
+        <h1>Voice-Enabled Chatbot Assistant</h1>
+    
+        <!-- Chatbot Section -->
+        <div class="section">
+            <h2>Chatbot</h2>
+            <div id="chat-box"></div>
+            <button class="btn" onclick="startListening()">🎤 Speak</button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <h2>Customer Account Management</h2>
+    <form id="accountForm">
+        <label for="customerName">Customer Name:</label>
+        <input type="text" id="customerName" required>
+
+        <label for="accountType">Account Type:</label>
+        <select id="accountType" required>
+            <option value="savings">Savings</option>
+            <option value="current">Current</option>
+            <option value="fixed">Fixed Deposit</option>
+            <option value="recurring">Recurring Deposit</option>
+        </select>
+
+        <label for="accountNumber">Account Number:</label>
+        <input type="text" id="accountNumber" required>
+
+        <button type="button" onclick="openAccount()">Open Account</button>
+        <button type="button" onclick="closeAccount()">Close Account</button>
+        <button type="button" onclick="deleteAccount()">Delete Account</button>
+    </form>
+
+
+    <div class="container">
+        <h1>Customer Management & Retail Banking</h1>
+    
+        <!-- KYC Verification Section -->
+        <div class="section" id="kyc-verification">
+            <h2>KYC Verification</h2>
+            <p>Enter your account number and upload identity documents for verification.</p>
+            <input type="text" id="kyc-account" class="input-field" placeholder="Enter Account Number">
+            <input type="file" id="kyc-doc" class="input-field">
+            <p id="kyc-status"></p>
+            <button class="btn" onclick="verifyKYC()">Submit KYC</button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="container">
+        <h1>Bank Account Management</h1>
+    
+        <!-- Account Selection -->
+        <div class="section">
+            <h2>Select Account Type</h2>
+            <select id="account-type" class="input-field" onchange="toggleSections()">
+                <option value="savings">Savings Account</option>
+                <option value="current">Current Account</option>
+                <option value="fd">Fixed Deposit (FD)</option>
+                <option value="rd">Recurring Deposit (RD)</option>
+            </select>
+        </div>
+    
+        <!-- Savings & Current Account Transactions -->
+        <div class="section" id="transaction-section">
+            <h2>Account Transactions</h2>
+            <input type="text" id="transaction-account" class="input-field" placeholder="Enter Account Number">
+            <input type="number" id="transaction-amount" class="input-field" placeholder="Enter Amount">
+            <select id="transaction-type" class="input-field">
+                <option value="deposit">Deposit</option>
+                <option value="withdraw">Withdraw</option>
+            </select>
+            <button class="btn" onclick="processTransaction()">Submit Transaction</button>
+            <p id="transaction-status"></p>
+        </div>
+    
+        <!-- Fixed Deposit (FD) Section -->
+        <div class="section hidden" id="fd-section">
+            <h2>Fixed Deposit (FD)</h2>
+            <input type="text" id="fd-account" class="input-field" placeholder="Enter Account Number">
+            <input type="number" id="fd-amount" class="input-field" placeholder="Enter Deposit Amount">
+            <input type="number" id="fd-tenure" class="input-field" placeholder="Enter Tenure (Months)">
+            <button class="btn" onclick="openFixedDeposit()">Open FD</button>
+            <p id="fd-status"></p>
+        </div>
+    
+        <!-- Recurring Deposit (RD) Section -->
+        <div class="section hidden" id="rd-section">
+            <h2>Recurring Deposit (RD)</h2>
+            <input type="text" id="rd-account" class="input-field" placeholder="Enter Account Number">
+            <input type="number" id="rd-amount" class="input-field" placeholder="Enter Monthly Deposit Amount">
+            <input type="number" id="rd-tenure" class="input-field" placeholder="Enter Tenure (Months)">
+            <button class="btn" onclick="openRecurringDeposit()">Open RD</button>
+            <p id="rd-status"></p>
+        </div>
+    
+    </div>
+
+
+
+
+
+    <div class="container">
+        <h1>Customer Service & CRM</h1>
+    
+        <!-- Customer Information Section -->
+        <div class="section">
+            <h2>Customer Information</h2>
+            <input type="text" id="customer-name" class="input-field" placeholder="Enter Customer Name">
+            <input type="email" id="customer-email" class="input-field" placeholder="Enter Email">
+            <input type="text" id="customer-phone" class="input-field" placeholder="Enter Phone Number">
+            <button class="btn" onclick="saveCustomerInfo()">Save Customer</button>
+            <p id="customer-status"></p>
+        </div>
+    
+        <!-- Customer Support Ticket System -->
+        <div class="section">
+            <h2>Support Ticket</h2>
+            <input type="text" id="ticket-id" class="input-field" placeholder="Enter Ticket ID (or leave blank for new)">
+            <textarea id="ticket-description" class="input-field" placeholder="Describe your issue"></textarea>
+            <button class="btn" onclick="submitTicket()">Submit Ticket</button>
+            <p id="ticket-status"></p>
+        </div>
+    
+        <!-- Feedback & Rating System -->
+        <div class="section">
+            <h2>Customer Feedback</h2>
+            <textarea id="feedback-text" class="input-field" placeholder="Write your feedback"></textarea>
+            <label>Rate Us:</label>
+            <select id="feedback-rating" class="input-field">
+                <option value="5">⭐⭐⭐⭐⭐ (5 - Excellent)</option>
+                <option value="4">⭐⭐⭐⭐ (4 - Good)</option>
+                <option value="3">⭐⭐⭐ (3 - Average)</option>
+                <option value="2">⭐⭐ (2 - Poor)</option>
+                <option value="1">⭐ (1 - Bad)</option>
+            </select>
+            <button class="btn" onclick="submitFeedback()">Submit Feedback</button>
+            <p id="feedback-status"></p>
+        </div>
+    
+    </div>
+
+
+
+<script src="CustomerBanking.js"></script>
+
+
+</body>
+</html>

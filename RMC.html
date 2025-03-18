@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Management & Compliance</title>
+    <link rel="stylesheet" href="RMC.css">
+</head>
+<body>
+    <h2>Risk Management & Compliance Dashboard</h2>
+    <div class="dashboard">
+        <div class="card">
+            <h3>Risk Monitoring</h3>
+            <canvas id="riskChart"></canvas>
+            <p>Credit Risk: <span id="creditRisk">Low</span></p>
+            <p>Market Risk: <span id="marketRisk">Moderate</span></p>
+            <p>Operational Risk: <span id="operationalRisk">High</span></p>
+            <button onclick="updateRiskLevels()">Refresh Risks</button>
+        </div>
+        <div class="card">
+            <h3>Compliance Status</h3>
+            <p>RBI: <span id="rbiStatus">Compliant</span></p>
+            <p>SEBI: <span id="sebiStatus">Compliant</span></p>
+            <p>Basel III: <span id="baselStatus">Compliant</span></p>
+            <p>AML & KYC: <span id="amlStatus">Pending Review</span></p>
+            <input type="file" id="documentUpload"> <button onclick="uploadDocument()">Upload KYC/AML</button>
+            <button onclick="checkCompliance()">Check Compliance</button>
+        </div>
+        <div class="card">
+            <h3>Fraud Detection</h3>
+            <p>Suspicious Transactions: <span id="fraudAlerts" class="alert">None</span></p>
+            <button onclick="detectFraud()">Scan Transactions</button>
+        </div>
+        <div class="card">
+            <h3>Audit Logs</h3>
+            <div class="logs" id="auditLogs"></div>
+            <button onclick="exportLogs()">Export Logs</button>
+        </div>
+    </div>
+    <script src="RMC.js"></script>
+</body>
+</html>

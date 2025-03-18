@@ -1,0 +1,83 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Banking</title>
+    <link rel="stylesheet" href="DBM.css">
+</head>
+<body>
+
+    <header>
+        <h1>Digital Banking & IT Management</h1>
+    </header>
+    
+    <div class="container">
+        <section id="auth">
+            <h2>User Authentication</h2>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="authenticateUser()">Login</button>
+        </section>
+
+        <section id="account-management" class="hidden">
+            <h2>Account Management</h2>
+            <button onclick="checkBalance()">Balance Inquiry</button>
+            <button onclick="viewTransactions()">Transaction History</button>
+            <button onclick="downloadStatement()">Download Statement</button>
+        </section>
+
+        <section id="fund-transfers" class="hidden">
+            <h2>Fund Transfers</h2>
+            <select id="transfer-method">
+                <option value="UPI">UPI</option>
+                <option value="NEFT">NEFT</option>
+                <option value="RTGS">RTGS</option>
+                <option value="SWIFT">SWIFT</option>
+            </select>
+            <input type="text" id="amount" placeholder="Amount">
+            <button onclick="transferFunds()">Transfer</button>
+        </section>
+
+
+        <section id="bill-payments" class="hidden">
+            <h2>Bill Payments & Recharge</h2>
+            <button onclick="payBill()">Pay Utility Bill</button>
+            <button onclick="rechargeMobile()">Mobile Recharge</button>
+        </section>
+
+        <section id="atm-management" class="hidden">
+            <h2>ATM Management</h2>
+            <button onclick="checkAtmStatus()">Check ATM Status</button>
+            <button onclick="cardlessWithdrawal()">Cardless Withdrawal</button>
+        </section>
+
+
+        <section id="security" class="hidden">
+            <h2>Cybersecurity & Fraud Prevention</h2>
+            <button onclick="encryptData()">Encrypt Data</button>
+            <button onclick="detectFraud()">Detect Fraud</button>
+            <button onclick="viewSecurityLogs()">View Security Logs</button>
+        </section>
+
+        <section id="it-management" class="hidden">
+            <h2>IT Management & Monitoring</h2>
+            <button onclick="viewSystemStatus()">System Status</button>
+            <button onclick="backupData()">Backup Data</button>
+        </section>
+
+
+
+
+        <section id="chatbot" class="hidden">
+            <h2>Chatbot</h2>
+            <div id="chatbox"></div>
+            <input type="text" id="userInput" placeholder="Ask a question...">
+            <button onclick="chatbotReply()">Send</button>
+        </section>
+    </div>
+
+    <script src="DBM.js"></script>
+</body>
+</html>

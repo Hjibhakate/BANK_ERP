@@ -1,0 +1,113 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #eef2f3;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: linear-gradient(135deg, #0073e6, #005bb5);
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+    font-size: 26px;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    width: 80%;
+    max-width: 900px;
+    margin: 30px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    color: #005bb5;
+    border-bottom: 3px solid #0073e6;
+    padding-bottom: 7px;
+    font-weight: bold;
+}
+
+/* Input Fields */
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #0073e6;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 115, 230, 0.2);
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: none;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #0073e6, #005bb5);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #005bb5, #004494);
+    transform: scale(1.05);
+}
+
+/* Sections */
+section {
+    margin: 25px 0;
+    padding: 18px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+section:hover {
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Chatbox */
+#chatbox {
+    width: 100%;
+    height: 250px;
+    border: 2px solid #ccc;
+    padding: 12px;
+    margin-bottom: 12px;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 6px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+    }
+
+    button {
+        font-size: 16px;
+    }
+}

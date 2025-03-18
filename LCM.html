@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan & Credit Management</title>
+   <link rel="stylesheet" href="LCM.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Loan Application</h2>
+        <form id="loanForm">
+            <label>Loan Type:</label>
+            <select id="loanType">
+                <option value="Personal">Personal Loan</option>
+                <option value="Home">Home Loan</option>
+                <option value="Car">Car Loan</option>
+                <option value="Business">Business Loan</option>
+            </select>
+            <label>Loan Amount:</label>
+            <input type="number" id="amount" required>
+            <label>Interest Rate (%):</label>
+            <input type="number" id="rate" required>
+            <label>Loan Tenure (Months):</label>
+            <input type="number" id="tenure" required>
+            <button type="button" onclick="calculateEMI()">Apply Loan</button>
+        </form>
+        <h3>Loan Details</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>Interest</th>
+                    <th>Tenure</th>
+                    <th>EMI</th>
+                </tr>
+            </thead>
+            <tbody id="loanTable"></tbody>
+        </table>
+    </div>
+
+    <div class="container">
+        <h2>EMI Payment & Loan Tracking</h2>
+        <label>Loan ID:</label>
+        <input type="text" id="loanId" placeholder="Enter Loan ID">
+        <label>EMI Paid Amount:</label>
+        <input type="number" id="emiPaid" placeholder="Enter EMI Payment">
+        <button type="button" onclick="trackPayment()">Track Payment</button>
+        
+        <h3>Payment History</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Loan ID</th>
+                    <th>Paid EMI</th>
+                </tr>
+            </thead>
+            <tbody id="paymentTable"></tbody>
+        </table>
+    </div>
+
+    <div class="container">
+        <h2>Credit Risk Assessment & Approval</h2>
+        <label>Credit Score (300-850):</label>
+        <input type="number" id="creditScore" min="300" max="850" required>
+        <label>Annual Income:</label>
+        <input type="number" id="income" required>
+        <label>Existing Debt:</label>
+        <input type="number" id="debt" required>
+        <label>Loan Amount Requested:</label>
+        <input type="number" id="loanRequested" required>
+        <button type="button" onclick="assessRisk()">Assess Risk</button>
+        
+        <h3>Approval Status</h3>
+        <p id="approvalStatus"></p>
+    </div>
+
+        
+    <script src="LCM.js"></script>
+        
+   
+</body>
+</html>

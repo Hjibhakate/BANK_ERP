@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR & Payroll Management</title>
+    <link rel="stylesheet" href="HRP.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>HR & Payroll Management</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showSection('dashboard')">Dashboard</a></li>
+            <li><a href="#" onclick="showSection('employees')">Employees</a></li>
+            <li><a href="#" onclick="showSection('attendance')">Attendance</a></li>
+            <li><a href="#" onclick="showSection('payroll')">Payroll</a></li>
+            <li><a href="#" onclick="showSection('taxation')">Taxation</a></li>
+            <li><a href="#" onclick="showSection('performance')">Performance</a></li>
+            <li><a href="#" onclick="showSection('training')">Training</a></li>
+            <li><a href="#" onclick="showSection('reports')">Reports</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="dashboard">
+            <h2>Dashboard Overview</h2>
+            
+            <div class="stats-container">
+                <div class="stat-box">
+                    <h3>Total Employees</h3>
+                    <p id="totalEmployees">0</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Active Employees</h3>
+                    <p id="activeEmployees">0</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Payroll Pending</h3>
+                    <p id="pendingPayroll">$0</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Payroll Disbursed</h3>
+                    <p id="disbursedPayroll">$0</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Present Today</h3>
+                    <p id="presentToday">0</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Absent Today</h3>
+                    <p id="absentToday">0</p>
+                </div>
+            </div>
+
+            <div class="charts-container">
+                <div class="chart-box">
+                    <h3>Employee Distribution by Department</h3>
+                    <canvas id="employeeChart"></canvas>
+                </div>
+                <div class="chart-box">
+                    <h3>Payroll Trends</h3>
+                    <canvas id="payrollChart"></canvas>
+                </div>
+            </div>
+
+            <div class="add-employee">
+                <h3>Add Employee</h3>
+                <input type="text" id="empName" placeholder="Employee Name">
+                <input type="text" id="empDepartment" placeholder="Department">
+                <button onclick="addEmployee()">Add Employee</button>
+            </div>
+        </section>
+
+
+
+
+        <section id="employees" class="content">
+            <h2>Employee Management</h2>
+            
+            <div class="form-container">
+                <input type="text" id="empName" placeholder="Employee Name">
+                <input type="text" id="empDepartment" placeholder="Department">
+                <input type="number" id="empSalary" placeholder="Salary">
+                <button onclick="addEmployee()">Add Employee</button>
+            </div>
+
+            <table id="employeeTable">
+                <tr>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Salary</th>
+                    <th>Actions</th>
+                </tr>
+            </table>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <section id="attendance" class="content">
+            <h2>Attendance Tracking</h2>
+            <button onclick="markAttendance()">Mark Attendance</button>
+            <p id="attendanceStatus">Attendance not marked yet.</p>
+        </section>
+
+        <section id="payroll" class="content">
+            <h2>Payroll Processing</h2>
+            <button onclick="generatePayroll()">Generate Payroll</button>
+            <p id="payrollStatus">No payroll generated.</p>
+        </section>
+
+        <section id="taxation" class="content">
+            <h2>Taxation & Compliance</h2>
+            <p>Manage TDS, PF, ESI, and other tax-related deductions.</p>
+        </section>
+
+        <section id="performance" class="content">
+            <h2>Performance & Appraisal</h2>
+            <p>Evaluate employee performance and manage appraisals.</p>
+        </section>
+
+        <section id="training" class="content">
+            <h2>Training & Development</h2>
+            <p>Schedule and track employee training programs.</p>
+        </section>
+
+        <section id="reports" class="content">
+            <h2>Reports & Analytics</h2>
+            <p>View HR and payroll reports.</p>
+        </section>
+    </main>
+
+    <script src="HRP.js"></script>
+</body>
+</html>

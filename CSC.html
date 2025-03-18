@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Support & Call Center</title>
+    <link rel="stylesheet" href="CSC.css">
+</head>
+<body>
+    <header>
+        <h1>Customer Support & Call Center</h1>
+    </header>
+    
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="#ticket-system">Ticketing System</a></li>
+                <li><a href="#agent-dashboard">Agent Dashboard</a></li>
+                <li><a href="#chatbot">AI Chatbot</a></li>
+                <li><a href="#analytics">Analytics & Reports</a></li>
+                <li><a href="#compliance">Compliance & Security</a></li>
+                <li><a href="#contact">Contact Information</a></li>
+            </ul>
+        </aside>
+        
+        <main>
+            <section id="ticket-system">
+                <h2>Customer Ticketing System</h2>
+                <input type="text" id="customer-name" placeholder="Enter your name">
+                <input type="text" id="customer-query" placeholder="Enter your query...">
+                <select id="query-department">
+                    <option value="general">General Inquiry</option>
+                    <option value="loans">Loans</option>
+                    <option value="credit-cards">Credit Cards</option>
+                    <option value="accounts">Accounts</option>
+                </select>
+                <button onclick="submitQuery()">Submit</button>
+                <div id="query-list"></div>
+            </section>
+
+            <section id="agent-dashboard">
+                <h2>Agent Dashboard</h2>
+                <div id="call-logs">Loading call logs...</div>
+                <button onclick="assignCall()">Assign Call</button>
+                <div id="assigned-calls"></div>
+            </section>
+
+            <section id="chatbot">
+                <h2>AI Chatbot</h2>
+                <div id="chat-window">
+                    <p><strong>Bot:</strong> Hello! How can I assist you today?</p>
+                </div>
+                <input type="text" id="chat-input" placeholder="Type your message...">
+                <button onclick="sendMessage()">Send</button>
+                <button onclick="connectAgent()">Connect to Human Agent</button>
+            </section>
+
+            <section id="analytics">
+                <h2>Analytics & Reports</h2>
+                <canvas id="performanceChart"></canvas>
+                <p>Agent Performance Metrics:</p>
+                <ul>
+                    <li>Call Resolution Rate</li>
+                    <li>Average Response Time</li>
+                    <li>Customer Satisfaction Score (CSAT)</li>
+                </ul>
+            </section>
+
+            <section id="compliance">
+                <h2>Compliance & Security</h2>
+                <p>All customer interactions are securely stored and monitored.</p>
+                <button onclick="viewAuditLogs()">View Audit Logs</button>
+                <div id="audit-logs"></div>
+            </section>
+
+            <section id="contact">
+                <h2>Contact Information</h2>
+                <p><strong>Email:</strong> <a href="mailto:hjibhakate2004@gmail.com">hjibhakate2004@gmail.com</a></p>
+                <p><strong>Phone:</strong> <a href="tel:+917666294406">+91 7666294406</a></p>
+                <p><strong>WhatsApp:</strong> <a href="https://wa.me/917666294406" target="_blank">Chat on WhatsApp</a></p>
+            </section>
+        </main>
+    </div>
+
+    <script src="CSC.js"></script>
+</body>
+</html>

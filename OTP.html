@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operations & Transaction Processing</title>
+    <link rel="stylesheet" href="OTP.css">
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Operations & Transaction Processing</h1>
+        <div class="tabs">
+            <button onclick="showSection('fundTransfers')">Fund Transfers</button>
+            <button onclick="showSection('clearingSettlement')">Clearing & Settlement</button>
+            <button onclick="showSection('reconciliation')">Reconciliation</button>
+            <button onclick="showSection('reporting')">Reporting</button>
+            <button onclick="showSection('security')">Security & Compliance</button>
+        </div>
+        
+        <div id="fundTransfers" class="section">
+            <h2>Fund Transfers</h2>
+            <label for="transferType">Select Transfer Type:</label>
+            <select id="transferType">
+                <option value="neft">NEFT</option>
+                <option value="rtgs">RTGS</option>
+                <option value="imps">IMPS</option>
+                <option value="upi">UPI</option>
+            </select>
+            <input type="number" id="amount" placeholder="Enter Amount" required>
+            <input type="text" id="recipient" placeholder="Recipient Account Number" required>
+            <button onclick="processTransfer()">Transfer Funds</button>
+        </div>
+
+        <div id="clearingSettlement" class="section" style="display:none;">
+            <h2>Clearing & Settlement</h2>
+            <button onclick="settleTransactions()">Settle Transactions</button>
+        </div>
+        
+        <div id="reconciliation" class="section" style="display:none;">
+            <h2>Transaction Reconciliation</h2>
+            <button onclick="reconcileTransactions()">Reconcile Now</button>
+        </div>
+        
+        <div id="reporting" class="section" style="display:none;">
+            <h2>Real-time Reporting</h2>
+            <button onclick="generateReport()">Generate Report</button>
+            <div id="reportOutput"></div>
+        </div>
+        
+        <div id="security" class="section" style="display:none;">
+            <h2>Security & Compliance</h2>
+            <button onclick="validateOTP()">Verify OTP</button>
+        </div>
+    </div>
+    
+    <script src="OTP.js"></script>
+</body>
+</html>

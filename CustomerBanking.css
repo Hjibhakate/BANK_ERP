@@ -1,0 +1,106 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #e3f2fd, #bbdefb);
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.container:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+h1, h2 {
+    text-align: center;
+    color: #0d47a1;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.section {
+    background: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.15);
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.section:hover {
+    box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+.input-field, select, button {
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.input-field:focus, select:focus {
+    border-color: #0d47a1;
+    outline: none;
+    box-shadow: 0px 0px 10px rgba(13, 71, 161, 0.4);
+}
+
+button {
+    background: linear-gradient(to right, #42a5f5, #0d47a1);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 8px;
+}
+
+button:hover {
+    background: linear-gradient(to right, #0d47a1, #42a5f5);
+    transform: scale(1.08);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.hidden {
+    display: none;
+}
+
+#chat-box {
+    height: 220px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 15px;
+    background: #fafafa;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.6;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Adding hover effects for form elements */
+.input-field:hover, select:hover {
+    border-color: #1565c0;
+    box-shadow: 0px 0px 8px rgba(21, 101, 192, 0.3);
+}
+
+/* Smooth transition effect */
+* {
+    transition: all 0.3s ease-in-out;
+}

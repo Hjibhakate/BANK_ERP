@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance & Accounting Module</title>
+    <link rel="stylesheet" href="FA.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Finance & Accounting</h2>
+        <ul>
+            <li onclick="showSection('general-ledger')">General Ledger</li>
+            <li onclick="showSection('accounts-payable')">Accounts Payable</li>
+            <li onclick="showSection('accounts-receivable')">Accounts Receivable</li>
+            <li onclick="showSection('profit-loss')">Profit & Loss</li>
+            <li onclick="showSection('asset-accounting')">Asset Accounting</li>
+            <li onclick="showSection('expense-tracking')">Expense Tracking</li>
+            <li onclick="showSection('taxation')">Taxation & Compliance</li>
+        </ul>
+    </div>
+    <div class="content"> 
+        <div class="container">
+            <h2>General Ledger</h2>
+            
+            <h3>Chart of Accounts</h3>
+            <form id="accountForm">
+                <input type="text" id="accountName" placeholder="Account Name" required>
+                <select id="accountType">
+                    <option value="Asset">Asset</option>
+                    <option value="Liability">Liability</option>
+                    <option value="Equity">Equity</option>
+                    <option value="Revenue">Revenue</option>
+                    <option value="Expense">Expense</option>
+                </select>
+                <button type="submit">Add Account</button>
+            </form>
+            <table id="accountTable">
+                <thead>
+                    <tr>
+                        <th>Account Name</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+    
+            <h3>Journal Entries</h3>
+            <form id="journalForm">
+                <input type="text" id="entryDesc" placeholder="Description" required>
+                <input type="number" id="debit" placeholder="Debit Amount" required>
+                <input type="number" id="credit" placeholder="Credit Amount" required>
+                <button type="submit">Add Entry</button>
+            </form>
+            <table id="journalTable">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Debit</th>
+                        <th>Credit</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+    
+            <h3>Trial Balance</h3>
+            <button onclick="calculateTrialBalance()">Generate Trial Balance</button>
+            <table id="trialBalanceTable">
+                <thead>
+                    <tr>
+                        <th>Account Name</th>
+                        <th>Debit</th>
+                        <th>Credit</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+
+
+
+
+        <div class="container">
+            <h2>Accounts Payable</h2>
+    
+            <h3>Vendor Management</h3>
+            <form id="vendorForm">
+                <input type="text" id="vendorName" placeholder="Vendor Name" required>
+                <input type="text" id="vendorContact" placeholder="Contact Details" required>
+                <button type="submit">Add Vendor</button>
+            </form>
+            <table id="vendorTable">
+                <thead>
+                    <tr>
+                        <th>Vendor Name</th>
+                        <th>Contact</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+    
+            <h3>Invoice Processing</h3>
+            <form id="invoiceForm">
+                <input type="text" id="invoiceVendor" placeholder="Vendor Name" required>
+                <input type="number" id="invoiceAmount" placeholder="Amount" required>
+                <input type="date" id="dueDate" required>
+                <input type="number" id="gstRate" placeholder="GST %" required>
+                <input type="number" id="tdsRate" placeholder="TDS %" required>
+                <button type="submit">Add Invoice</button>
+            </form>
+            <table id="invoiceTable">
+                <thead>
+                    <tr>
+                        <th>Vendor</th>
+                        <th>Amount</th>
+                        <th>GST</th>
+                        <th>TDS</th>
+                        <th>Total Payable</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+    
+            <h3>Aging Report</h3>
+            <button onclick="generateAgingReport()">Generate Report</button>
+            <table id="agingTable">
+                <thead>
+                    <tr>
+                        <th>Vendor</th>
+                        <th>Invoice Amount</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    
+
+
+
+
+        <section id="accounts-receivable" class="section">
+        <h2>Accounts Receivable</h2>
+        <p>Manage customer invoices, payments, and overdue reminders.</p>
+
+        <button id="add-invoice-btn">+ Add Invoice</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Invoice #</th>
+                    <th>Customer</th>
+                    <th>Amount</th>
+                    <th>Due Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="invoice-table-body">
+                <!-- Invoices will be inserted dynamically -->
+            </tbody>
+        </table>
+
+        <div id="invoice-form" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Add Invoice</h3>
+                <label>Invoice Number: <input type="text" id="invoice-number"></label>
+                <label>Customer Name: <input type="text" id="customer-name"></label>
+                <label>Amount: <input type="number" id="invoice-amount"></label>
+                <label>Due Date: <input type="date" id="due-date"></label>
+                <button id="save-invoice">Save</button>
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+
+
+
+        <section id="profit-loss" class="section">
+        <h2>Profit & Loss Statement</h2>
+        <p>View automated P&L statements, balance sheets, and financial reports.</p>
+
+        <button id="add-transaction-btn">+ Add Transaction</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="transaction-table">
+                <!-- Transactions will be inserted dynamically -->
+            </tbody>
+        </table>
+
+        <h3>Total Profit/Loss: <span id="total-profit-loss">$0.00</span></h3>
+
+        <div id="transaction-form" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Add Transaction</h3>
+                <label>Type: 
+                    <select id="transaction-type">
+                        <option value="Income">Income</option>
+                        <option value="Expense">Expense</option>
+                    </select>
+                </label>
+                <label>Description: <input type="text" id="transaction-description"></label>
+                <label>Amount: <input type="number" id="transaction-amount"></label>
+                <label>Date: <input type="date" id="transaction-date"></label>
+                <button id="save-transaction">Save</button>
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+
+
+
+        <section id="asset-accounting" class="section">
+        <h2>Asset Accounting</h2>
+        <p>Track asset depreciation, revaluation, and disposal details.</p>
+
+        <button id="add-asset-btn">+ Add Asset</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Asset ID</th>
+                    <th>Name</th>
+                    <th>Purchase Price</th>
+                    <th>Current Value</th>
+                    <th>Depreciation Rate (%)</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="asset-table-body">
+                <!-- Assets will be inserted dynamically -->
+            </tbody>
+        </table>
+
+        <div id="asset-form" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Add Asset</h3>
+                <label>Asset ID: <input type="text" id="asset-id"></label>
+                <label>Asset Name: <input type="text" id="asset-name"></label>
+                <label>Purchase Price: <input type="number" id="purchase-price"></label>
+                <label>Depreciation Rate (%): <input type="number" id="depreciation-rate"></label>
+                <button id="save-asset">Save</button>
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+
+        <section id="expense-tracking" class="section">
+        <h2>Expense Tracking & Budgeting</h2>
+        <p>Monitor expenses, allocate costs, and ensure tax compliance.</p>
+
+        <div>
+            <label>Set Monthly Budget: $<input type="number" id="monthly-budget" placeholder="Enter budget"></label>
+            <button id="set-budget-btn">Set Budget</button>
+            <h3>Remaining Budget: <span id="remaining-budget">$0.00</span></h3>
+        </div>
+
+        <button id="add-expense-btn">+ Add Expense</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="expense-table">
+                <!-- Expenses will be inserted dynamically -->
+            </tbody>
+        </table>
+
+        <h3>Total Expenses: <span id="total-expenses">$0.00</span></h3>
+
+        <div id="expense-form" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Add Expense</h3>
+                <label>Category:
+                    <select id="expense-category">
+                        <option value="Rent">Rent</option>
+                        <option value="Salaries">Salaries</option>
+                        <option value="Utilities">Utilities</option>
+                        <option value="Supplies">Supplies</option>
+                        <option value="Miscellaneous">Miscellaneous</option>
+                    </select>
+                </label>
+                <label>Description: <input type="text" id="expense-description"></label>
+                <label>Amount: <input type="number" id="expense-amount"></label>
+                <label>Date: <input type="date" id="expense-date"></label>
+                <button id="save-expense">Save</button>
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+
+         <section id="taxation" class="section">
+        <h2>Taxation & Compliance</h2>
+        <p>Manage GST, VAT, TDS calculations, and generate compliance reports.</p>
+
+        <button id="add-tax-btn">+ Add Tax Transaction</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Transaction ID</th>
+                    <th>Amount</th>
+                    <th>Tax Type</th>
+                    <th>Tax Rate (%)</th>
+                    <th>Tax Amount</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="tax-table">
+                <!-- Tax transactions will be inserted dynamically -->
+            </tbody>
+        </table>
+
+        <h3>Total Tax Liability: <span id="total-tax">$0.00</span></h3>
+
+        <button id="generate-report">Generate Compliance Report</button>
+
+        <div id="tax-form" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Add Tax Transaction</h3>
+                <label>Transaction ID: <input type="text" id="transaction-id"></label>
+                <label>Amount: <input type="number" id="amount"></label>
+                <label>Tax Type:
+                    <select id="tax-type">
+                        <option value="GST">GST</option>
+                        <option value="VAT">VAT</option>
+                        <option value="TDS">TDS</option>
+                    </select>
+                </label>
+                <label>Tax Rate (%): <input type="number" id="tax-rate"></label>
+                <button id="save-tax">Save</button>
+            </div>
+        </div>
+
+    </section>
+    </div>
+    <script src="FA.js"></script>
+</body>
+</html>

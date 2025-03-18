@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treasury & Investment Management</title>
+    <link rel="stylesheet" href="TIM.css">
+</head>
+<body>
+
+    <header>
+        <h1>Treasury & Investment Management</h1>
+        <button onclick="toggleDarkMode()">🌙 Dark Mode</button>
+    </header>
+
+    <main>
+        <section id="forex">
+            <h2>Live Forex Rates</h2>
+            <select id="forexCurrency">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="JPY">JPY</option>
+            </select>
+            <button onclick="fetchForexRate()">Get Rate</button>
+            <p id="forexResult"></p>
+        </section>
+
+        <section id="stocks">
+            <h2>Live Stock Market Prices</h2>
+            <input type="text" id="stockSymbol" placeholder="Enter Stock Symbol (e.g., AAPL, TCS)">
+            <button onclick="fetchStockPrice()">Get Price</button>
+            <p id="stockResult"></p>
+        </section>
+
+        <section id="portfolio">
+            <h2>Investment Portfolio</h2>
+            <label>Cash (₹):</label>
+            <input type="number" id="cashAmount">
+            <label>Investments (₹):</label>
+            <input type="number" id="investmentAmount">
+            <button onclick="calculatePortfolio()">Update Portfolio</button>
+            <p id="portfolioSummary"></p>
+        </section>
+
+        <section id="risk">
+            <h2>Risk Prediction & Hedging</h2>
+            <button onclick="analyzeRisk()">Check Risk Level</button>
+            <p id="riskResult"></p>
+        </section>
+
+        <section id="compliance">
+            <h2>Regulatory Compliance</h2>
+            <button onclick="checkCompliance()">Run Compliance Check</button>
+            <p id="complianceResult"></p>
+        </section>
+    </main>
+
+
+
+    <script src="TIM.js"></script>
+</body>
+</html>

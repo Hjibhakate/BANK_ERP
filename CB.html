@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Banking Portal</title>
+    <link rel="stylesheet" href="CB.css">
+</head>
+<body>
+    <header>
+        <h1>Corporate Banking Portal</h1>
+        <nav>
+            <ul>
+                <li><a href="#loans">Corporate Loans</a></li>
+                <li><a href="#trade">Trade Finance</a></li>
+                <li><a href="#accounts">Business Accounts</a></li>
+                <li><a href="#cash">Cash Management</a></li>
+                <li><a href="#bulk">Bulk Transactions</a></li>
+                <li><a href="#treasury">Treasury Services</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="loans">
+            <h2>Corporate Loans</h2>
+            <p>Apply for corporate loans with flexible repayment options.</p>
+            <form id="loanForm">
+                <input type="text" id="companyName" placeholder="Company Name" required>
+                <input type="number" id="loanAmount" placeholder="Loan Amount" min="1000" required>
+                <select id="loanType" required>
+                    <option value="">Select Loan Type</option>
+                    <option value="working-capital">Working Capital</option>
+                    <option value="equipment">Equipment Finance</option>
+                    <option value="expansion">Business Expansion</option>
+                </select>
+                <textarea id="loanReason" placeholder="Reason for Loan (Max 250 characters)" maxlength="250" required></textarea>
+                <button type="submit">Apply Now</button>
+            </form>
+            <p id="loanStatus"></p>
+        </section>
+    
+
+        <section id="trade">
+            <h2>Trade Finance</h2>
+            <p>Secure international trade with our financing solutions.</p>
+            <form id="tradeForm">
+                <input type="text" id="tradeCompanyName" placeholder="Company Name" required>
+                <input type="text" id="tradeDetails" placeholder="Trade Details" required>
+                <select id="tradeType" required>
+                    <option value="">Select Trade Service</option>
+                    <option value="letter-of-credit">Letter of Credit</option>
+                    <option value="bank-guarantee">Bank Guarantee</option>
+                    <option value="export-finance">Export Finance</option>
+                </select>
+                <textarea id="tradeReason" placeholder="Purpose of Trade Finance (Max 250 characters)" maxlength="250" required></textarea>
+                <button type="submit">Request Service</button>
+            </form>
+            <p id="tradeStatus"></p>
+        </section>
+
+        <section id="accounts">
+            <h2>Business Accounts</h2>
+            <p>Manage your corporate banking accounts efficiently.</p>
+            <button onclick="viewAccounts()">View Accounts</button>
+            <button onclick="openAccount()">Open New Account</button>
+            <button onclick="closeAccount()">Close Account</button>
+            <div id="accountDetails"></div>
+        </section>
+        
+
+        <section id="cash">
+            <h2>Cash Management</h2>
+            <p>Optimize cash flow and liquidity with our solutions.</p>
+            <button onclick="viewCashFlow()">View Cash Flow</button>
+            <button onclick="transferFunds()">Transfer Funds</button>
+            <button onclick="generateReport()">Generate Report</button>
+            <div id="cashDetails"></div>
+        </section>
+
+
+        
+        <section id="bulk">
+            <h2>Bulk Transactions</h2>
+            <p>Perform bulk transactions seamlessly.</p>
+            <form id="bulkForm">
+                <input type="file" id="bulkFile" accept=".csv" required>
+                <button type="submit">Upload & Process</button>
+            </form>
+            <p id="bulkStatus"></p>
+            <button onclick="downloadSample()">Download Sample CSV</button>
+            <div id="transactionPreview"></div>
+        </section>
+
+        
+
+        
+
+        <section id="treasury">
+            <h2>Treasury Services</h2>
+            <p>Advanced treasury services for large-scale financial operations.</p>
+            <button onclick="openTreasuryModal()">Get Started</button>
+    
+            <!-- Treasury Modal -->
+            <div id="treasuryModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeTreasuryModal()">&times;</span>
+                    <h3>Currency Exchange</h3>
+                    <form id="exchangeForm">
+                        <label for="currency">Select Currency:</label>
+                        <select id="currency">
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                        </select>
+    
+                        <label for="amount">Amount:</label>
+                        <input type="number" id="amount" placeholder="Enter amount" required>
+    
+                        <button type="button" onclick="exchangeCurrency()">Exchange</button>
+                    </form>
+    
+                    <h3>Interest Rate Inquiry</h3>
+                    <button onclick="getInterestRates()">Check Rates</button>
+                    <p id="interestRate"></p>
+    
+                    <h3>Transaction History</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactionHistory"></tbody>
+                    </table>
+                </div>
+            </div>
+    
+        </section>
+    
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Corporate Banking. All rights reserved.</p>
+    </footer>
+
+    <script src="CB.js"></script>
+</body>
+</html>
